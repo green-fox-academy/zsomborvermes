@@ -8,3 +8,5 @@
 
 [Repository for my website](https://github.com/zsomborvermes/zsomborvermes.github.io)
 
+[Ruepellii Really syllabus](https://github.com/green-fox-academy/really-syllabus)
+
