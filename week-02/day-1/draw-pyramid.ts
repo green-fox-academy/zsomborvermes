@@ -16,7 +16,7 @@ let pyramidBase: number = (lineCount*2)-1;
 // The pyramid should have as many lines as lineCount is
 
 for (let i: number = 1; i <= pyramidBase; i = i + 2){
-    let currentLine = "";
+    let currentLine: string = "";
     for(let spaces: number = 0; spaces <= (pyramidBase-i)/2; spaces++){
         currentLine = currentLine + " ";
     }
