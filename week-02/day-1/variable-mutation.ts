@@ -14,13 +14,13 @@ b -= 7;
 console.log(b);
 
 let c: number = 44;
-c = c * 2;
+c *= 2;
 // double c's value
 
 console.log(c);
 
 let d: number = 125;
-d = d / 2;
+d /= 2;
 // divide d's value by 5
 
 console.log(d);
