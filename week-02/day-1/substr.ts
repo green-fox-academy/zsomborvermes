@@ -5,11 +5,7 @@
 //  Returns `-1` if the second string is not in the first one
 
 function substr(str: string, keyword: string): number {
-    if (str.indexOf(keyword)) {
-        return str.indexOf(keyword)
-    } else {
-        return -1;
-    }
+    return str.indexOf(keyword);
 }
 
 //  Example
