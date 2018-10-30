@@ -5,11 +5,17 @@ export{};
 // -  The function should return the result
 
 function sum(num: number){
-    let sum: number = 0;
-    for(let i: number = 0; i <= num; i++){
-        sum += i;
+    if(num == 1){
+        return 1;
+    } else{
+        return num + sum(num-1);
     }
-    return sum;
+
+    // let sum: number = 0;
+    // for(let i: number = 0; i <= num; i++){
+    //     sum += i;
+    // }
+    // return sum;
 }
 
 console.log(sum(4));
