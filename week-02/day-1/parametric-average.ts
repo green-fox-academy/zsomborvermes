@@ -15,18 +15,22 @@ let NumberOfInputs = 0;
 
 
 input.addListener("data", function (d) {
-    if (inputCounter == 0) {
-        NumberOfInputs = +d.toString().trim();
-        console.log("Enter a number! ");
-    } else if (inputCounter < NumberOfInputs) {
-        console.log("Enter a number! ");
-        sum += +d.toString().trim();
+    if (!Number.isNaN(+d.toString().trim())) {
+        if (inputCounter == 0) {
+            NumberOfInputs = +d.toString().trim();
+            console.log("Enter a number! ");
+        } else if (inputCounter < NumberOfInputs) {
+            console.log("Enter a number! ");
+            sum += +d.toString().trim();
+        } else {
+            console.log("Enter a number! ");
+            sum += +d.toString().trim();
+            console.log("Sum: " + sum + ", Average: " + sum / NumberOfInputs);
+            process.exit();
+        }
+        inputCounter++;
     } else {
-        console.log("Enter a number! ");
-        sum += parseInt(d.toString().trim());
-        console.log("Sum: " + sum + ", Average: " + sum / NumberOfInputs);
-        process.exit();
+        console.log("I need a number!")
     }
-    inputCounter++;
 
 });

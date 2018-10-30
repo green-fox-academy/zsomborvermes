@@ -20,7 +20,7 @@ for (let i: number = 1; i <= pyramidBase; i = i + 2){
     for(let spaces: number = 0; spaces <= (pyramidBase-i)/2; spaces++){
         currentLine = currentLine + " ";
     }
-     for(let stars: number = 0; stars < i; stars++){
+    for(let stars: number = 0; stars < i; stars++){
         currentLine = currentLine + "*";
     }
     for(let spaces: number = 0; spaces <= (pyramidBase-i)/2; spaces++){

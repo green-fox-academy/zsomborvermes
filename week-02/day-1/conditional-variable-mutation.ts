@@ -1,5 +1,6 @@
 
 'use strict';
+export{}
 
 
 let a: number = 24;
