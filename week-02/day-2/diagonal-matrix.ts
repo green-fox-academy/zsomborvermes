@@ -29,4 +29,4 @@ for (let i: number = 0; i < size; i++){
     matrix.push(currentLine);
 }
 
-matrix.map(e => console.log(e));
+matrix.map(e => console.log(e.toString().split(",").join(" ")));
