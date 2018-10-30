@@ -7,10 +7,12 @@ export{};
 
 let numList: number[] = [1, 2, 3, 8, 5, 6];
 
-numList.map(e => {
+let numList_1 = numList.map(e => {
     if(e === 8){
-        numList.splice(3,1,4);
+        return 4;
+    } else {
+        return e;
     }
 })
 
-console.log(numList[4]);
+console.log(numList_1);
