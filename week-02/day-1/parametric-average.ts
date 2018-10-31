@@ -7,30 +7,33 @@
 //
 // Sum: 22, Average: 4.4
 
-console.log("How many numbers will you enter?: ");
-let input: any = process.openStdin();
 let sum: number = 0;
 let inputCounter: number = 0;
-let NumberOfInputs = 0;
+let numberOfInputs: number = 0;
+
+console.log('How many numbers will you enter? ');
+let input: any = process.openStdin();
 
 
-input.addListener("data", function (d) {
-    if (!Number.isNaN(+d.toString().trim())) {
-        if (inputCounter == 0) {
-            NumberOfInputs = +d.toString().trim();
-            console.log("Enter a number! ");
-        } else if (inputCounter < NumberOfInputs) {
-            console.log("Enter a number! ");
-            sum += +d.toString().trim();
-        } else {
-            console.log("Enter a number! ");
-            sum += +d.toString().trim();
-            console.log("Sum: " + sum + ", Average: " + sum / NumberOfInputs);
-            process.exit();
-        }
-        inputCounter++;
+input.addListener('data', function (d) {
+  if (!Number.isNaN(+d.toString().trim())) {
+    if (inputCounter === 0) {
+      numberOfInputs = +d.toString().trim();
+      console.log('Enter a number! ');
+    } else if (inputCounter < numberOfInputs) {
+      console.log('Enter a number! ');
+      sum += +d.toString().trim();
     } else {
-        console.log("I need a number!")
+      sum += +d.toString().trim();
+      console.log(`Sum: ${sum}, Average: ${sum / numberOfInputs}`);
+      process.exit();
     }
-
+    inputCounter++;
+  } else {
+    console.log('I need a number!')
+  }
 });
+
+// note:  d is an object, and when converted to a string it will
+    // end with a linefeed.  so we (rather crudely) account for that  
+    // with toString() and then substring() 
