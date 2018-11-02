@@ -17,7 +17,7 @@ function josephus(num: number): number[] {
     if (num % 2 === 1 && counter === 1 || currentLength % 2 === 1) {
       people.shift();
     }
-    console.log('Round ', counter, people);
+    console.log(`Round ${counter}: ${people}`);
     counter++;
   }
   return people;
