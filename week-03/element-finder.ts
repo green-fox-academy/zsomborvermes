@@ -7,10 +7,10 @@ const numbers: number[] = [1, 2, 3, 4, 5, 6, 8];
 
 function containsSeven(nums: number[]): string{
   let out: string = "";
-  if (nums.findIndex(e => e === 7) === -1) {
-    out = "Noooooo!"
-  } else {
+  if (nums.includes(7)) {
     out = "Hoorray!"
+  } else {
+    out = "Noooooo!"
   }
   return out;
 }
