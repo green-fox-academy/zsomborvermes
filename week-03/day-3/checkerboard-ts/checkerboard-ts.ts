@@ -8,29 +8,14 @@ const ctx = canvas.getContext('2d');
 
 // Fill the canvas with a checkerboard pattern.
 
-function drawSquare(x: number, y: number, color: string) {
-  ctx.fillStyle = color;
+function drawSquare(x: number, y: number) {
   ctx.fillRect(x, y, 50, 50);
 }
 
-let column = 0;
-for (let i: number = 0; i < 12; i++) {
-  if (column % 2 === 0) {
-    for (let j: number = 0; j < 8; j++) {
-      if (j % 2 === 0) {
-        drawSquare(column * 50, j * 50, 'black');
-      } else {
-        drawSquare(column * 50, j * 50, 'white');
-      }
-    }
-  } else {
-    for (let j: number = 0; j < 8; j++) {
-      if (j % 2 === 0) {
-        drawSquare(column * 50, j * 50, 'white');
-      } else {
-        drawSquare(column * 50, j * 50, 'black');
-      }
+for (let i: number = 0; i < canvas.height; i++) {
+  for (let j: number = 0; j < canvas.width; j++) {
+    if ((i + j) % 2 === 0){
+      drawSquare(i * 50, j * 50);
     }
   }
-  column++
 }
