@@ -13,7 +13,6 @@ const ctx = canvas.getContext('2d');
 let colorsOfRainbow: string[] = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 
 function drawColoredSquare(size: number, color: string) {
-  ctx.fillStyle = color;
   ctx.fillRect(canvas.width / 2 - size / 2, canvas.height / 2 - size / 2, size, size);
 }
 

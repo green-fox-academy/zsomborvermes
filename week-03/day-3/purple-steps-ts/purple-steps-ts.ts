@@ -15,6 +15,6 @@ function drawPurpleSquare(x: number, y: number) {
   ctx.strokeRect(x, y, 15, 15);
 }
 
-for (let i: number = 1; i <= 20; i++){
-  drawPurpleSquare(i*15, i*15);
+for (let i: number = 1; i <= 20; i++) {
+  drawPurpleSquare(i * 15, i * 15);
 }
