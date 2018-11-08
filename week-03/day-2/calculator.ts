@@ -17,50 +17,60 @@
 // Else print the result
 // Say goodbye
 
-//const args = process.argv.splice(2); // Just a helper for you to get started
+let instructions: string = `Provide an operation with 2 operand and an operator!
+Separate the operands and the operator with spaces!
+(Examples: 3 + 3 or 21 * 32)
+Press enter to calculate the result!\n`;
 
-//console.log('Input params are', args);
-console.log("Provide 2 operand and an operator!");
-console.log('Provide the first operand!');
+console.log(`\n\n\t\tCALCULATOR v2.0\n\n${instructions}`);
 let input = process.openStdin();
-let counter: number = 0;
+
 let operand_1: number = 0;
 let operand_2: number = 0;
 let operator: string = "";
+let validOperators: string[] = ['+', '-', '*', '/', '%'];
 
 input.addListener('data', function (d) {
-  if (counter === 0) {
-    operand_1 = +d.toString().trim();
-    console.log('Provide the second operand!');
-  } else if (counter === 1) {
-    operand_2 = +d.toString().trim();
-    console.log('Provide an operator! (+, -, *, /, %)');
-  } else {
-    operator = d.toString().trim();
-    console.log(`Result: ${calculator(operand_1, operand_2, operator)}`);
-    process.exit();
-  }
-  counter++;
+  let operation: any[] = [];
+  operation = d.toString().trim().split(" ");
+  operand_1 = +operation[0];
+  operand_2 = +operation[2];
+  operator = operation[1];
+  calculator(operand_1, operand_2, operator);
+
 });
 
-function calculator(op_1: number, op_2: number, operator: string): number {
-  if (operator === '+') {
-    return op_1 + op_2;
-
-  } else if (operator === '-') {
-    return op_1 - op_2;
-
-  } else if (operator === '*') {
-    return op_1 * op_2;
-
-  } else if (operator === '/') {
-    return op_1 / op_2;
-
-  } else if (operator === '%') {
-    return op_1 % op_2;
-
-  } else  {
-    console.log('Wrong input!');
+function calculator(op_1: number, op_2: number, operator: string): void {
+  if (Number.isNaN(op_1) || Number.isNaN(op_2) || validOperators.indexOf(operator) === -1) {
+    console.log(`\t\tWRONG INPUT!!!\n\n${instructions}`);
+  } else {
+    switch (operator) {
+      case "+": {
+        console.log(`\nResult: ${op_1 + op_2}\n`);
+        process.exit();
+        break;
+      }
+      case "-": {
+        console.log(`\nResult: ${op_1 - op_2}\n`);
+        process.exit();
+        break;
+      }
+      case "*": {
+        console.log(`\nResult: ${op_1 * op_2}\n`);
+        process.exit();
+        break;
+      }
+      case "/": {
+        console.log(`\nResult: ${op_1 / op_2}\n`);
+        process.exit();
+        break;
+      }
+      case "%": {
+        console.log(`\nResult: ${op_1 % op_2}\n`);
+        process.exit();
+        break;
+      }
+    }
   }
 }
 
