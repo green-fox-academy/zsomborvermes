@@ -8,7 +8,7 @@ let fs = require('fs');
 
 try {
   let myName = 'Vermes Zsombor';
-  fs.writeFileSync('my-file.txt', myName);
+  fs.writeFileSync('files/my-file.txt', myName);
 } catch (err) {
   console.log('Unable to write file: my-file.txt');
 }

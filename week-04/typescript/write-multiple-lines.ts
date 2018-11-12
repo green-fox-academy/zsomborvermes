@@ -18,4 +18,4 @@ function writeLines(path: string, word: string, numOfLines: number) {
   fs.writeFileSync(path, out);
 }
 
-writeLines('apple.txt', 'apple', 5);
+writeLines('files/apple.txt', 'apple', 5);

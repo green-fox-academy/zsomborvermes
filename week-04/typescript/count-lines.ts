@@ -18,5 +18,5 @@ function countLines(filename: string): number {
   }
 }
 
-console.log(countLines('message.txt'));
+console.log(countLines('files/message.txt'));
 console.log(countLines('mess.txt'));
