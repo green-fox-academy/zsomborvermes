@@ -1,0 +1,3 @@
+First line of my file
+Second line of my file
+Third line of my file
