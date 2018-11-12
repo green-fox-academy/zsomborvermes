@@ -8,7 +8,7 @@ export { };
 // to the file and each line should be 'apple'
 // The function should not raise any error if it could not write the file. 
 
-let fs = require('fs');
+const fs = require('fs');
 
 function writeLines(path: string, word: string, numOfLines: number) {
   let out: string = ""
