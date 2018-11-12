@@ -16,7 +16,8 @@ function checkLine(line: string[]): string {
   let result: string = '';
   if (line.every(e => e === 'X')) {
     result = 'X';
-  } else if (line.every(e => e === 'O')) {
+  }
+  if (line.every(e => e === 'O')) {
     result = 'O';
   }
   return result;
@@ -51,18 +52,17 @@ function convertDiagonalsToLines(match: string[][]): string[][] {
 
 function ticTacResult(match: string[][]): string {
   for (let i = 0; i < match.length; i++) {
-    if (checkLine(match[i]) === 'X' ||
-      checkLine(convertColumnsToLines(match)[i]) === 'X' ||
-      checkLine(convertDiagonalsToLines(match)[i]) === 'X') {
-      return 'X';
-    } else if (checkLine(match[i]) === 'O' ||
-      checkLine(convertColumnsToLines(match)[i]) === 'O' ||
-      checkLine(convertDiagonalsToLines(match)[i]) === 'O') {
-      return 'O';
-    }
-    return 'Draw';
+    const row = match[i];
+    const column = convertColumnsToLines(match)[i];
+    const diagonal = convertDiagonalsToLines(match)[i];
+
+    if (checkLine(row)) return checkLine(row);
+    if (checkLine(column)) return checkLine(column);
+    if (checkLine(diagonal)) return checkLine(diagonal);
   }
+  return 'Draw';
 }
+
 
 
 try {
