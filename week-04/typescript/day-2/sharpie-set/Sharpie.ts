@@ -12,7 +12,6 @@ export class Sharpie {
   use() {
     if (this.inkAmount !== 0) {
       this.inkAmount--;
-      console.log(`Ink amount: ${this.inkAmount}`);
     }
   }
 
