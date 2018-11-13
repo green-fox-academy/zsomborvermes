@@ -2,9 +2,9 @@ import { Teacher } from "./Teacher";
 
 export class Student {
 
-  learn() { }
+  learn(): void { }
 
-  question(teacher: Teacher) {
+  question(teacher: Teacher): void {
     teacher.answer();
   }
 }
