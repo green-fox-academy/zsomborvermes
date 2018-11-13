@@ -9,13 +9,13 @@ export class Sharpie {
     this.inkAmount = 100;
   }
 
-  use() {
+  use(): void {
     if (this.inkAmount !== 0) {
       this.inkAmount--;
     }
   }
 
-  getInkAmount() {
+  getInkAmount(): number {
     return this.inkAmount;
   }
 }
