@@ -7,22 +7,22 @@ export class Animal {
     this.thirst = 50;
   }
 
-  eat() {
+  eat(): void {
     this.hunger--;
     console.log('Hunger: ' + this.hunger);
   }
 
-  drink() {
+  drink(): void {
     this.thirst--;
     console.log('Thirst: ' + this.thirst);
   }
 
-  play() {
+  play(): void {
     this.hunger++;
     this.thirst++;
     console.log('Hunger and thirst: ' + this.hunger + ', ' + this.thirst);
   }
-  getHunger() {
+  getHunger(): number {
     return this.hunger;
   }
 }

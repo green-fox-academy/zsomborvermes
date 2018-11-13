@@ -4,13 +4,13 @@ export class Farm {
   private animalList: Animal[] = [];
   private slots: number = 10;
 
-  breed() {
+  breed(): void {
     if (this.animalList.length < 10) {
       this.animalList.push(new Animal());
     }
   }
 
-  slaughter() {
+  slaughter(): void {
     let leastHungry: Animal;
     for (let i = 0; i < this.animalList.length; i++) {
       if (i === 0) {
@@ -22,7 +22,7 @@ export class Farm {
     this.animalList.splice(this.animalList.indexOf(leastHungry), 1);
   }
 
-  getAnimalList() {
+  getAnimalList(): Animal[] {
     return this.animalList;
   }
 }
