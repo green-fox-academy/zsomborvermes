@@ -7,19 +7,19 @@ export class Car {
     this.gasCapacity = 100;
   }
 
-  getGasCapacity() {
+  getGasCapacity(): number {
     return this.gasCapacity;
   }
 
-  getGasAmount() {
+  getGasAmount(): number {
     return this.gasAmount
   }
 
-  fillGas() {
+  fillGas(): void {
     this.gasAmount = this.gasCapacity;
   }
 
-  print() {
+  print(): void {
     console.log(`Capacity: ${this.gasCapacity} Amount: ${this.gasAmount}`)
   }
 }

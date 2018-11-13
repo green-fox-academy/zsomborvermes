@@ -3,12 +3,12 @@ import { Car } from "./Car";
 export class Station {
   private gasAmount = 100;
 
-  refill(car: Car) {
+  refill(car: Car): void {
     this.gasAmount -= (car.getGasCapacity() - car.getGasAmount());
     car.fillGas();
   }
 
-  print() {
+  print(): void {
     console.log(`GasAmount in Station: ${this.gasAmount}`);
   }
 }
