@@ -5,15 +5,15 @@ class Counter {
     this.counter = counter;
   }
 
-  add(counter: number = 1) {
+  add(counter: number = 1): void {
     this.counter += Math.round(counter);
   }
 
-  get() {
+  get(): number {
     return this.counter;
   }
 
-  reset() {
+  reset(): void {
     this.counter = 0;
   }
 }
