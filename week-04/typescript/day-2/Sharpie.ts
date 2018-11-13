@@ -9,7 +9,7 @@ class Sharpie {
     this.inkAmount = 100;
   }
 
-  use() {
+  use(): void {
     this.inkAmount--;
     console.log(`Ink amount: ${this.inkAmount}`)
   }
