@@ -7,16 +7,16 @@ class Fleet {
     this.things = [];
   }
 
-  add(thing: Thing) {
+  add(thing: Thing): void {
     this.things.push(thing);
   }
 
-  print() {
+  print(): void {
     this.things.forEach(e => {
       if (e.isCompleted()) {
-        console.log(`[x] ${e.getName()}`)
+        console.log(`[x] ${e.getName()}`);
       } else {
-        console.log(`[ ] ${e.getName()}`)
+        console.log(`[ ] ${e.getName()}`);
       }
     });
   }

@@ -6,7 +6,7 @@ class Thing {
     this.name = name;
   }
 
-  public complete() {
+  public complete(): void {
     this.completed = true;
   }
 
