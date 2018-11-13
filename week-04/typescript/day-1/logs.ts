@@ -8,7 +8,7 @@ const fs = require('fs');
 
 
 function processLog(): string[][] {
-  let logContent: string = readFile('file/log.txt');
+  let logContent: string = readFile('files/log.txt');
   let logProcessed: string[][] = [];
   if (logContent !== null) {
     let logLines: string[] = logContent.split("\n");
@@ -27,6 +27,7 @@ function getIpAdresses(log: string[][]): string[] {
   for (let line of log) {
     ipAdresses.push(line[1]);
   }
+  ipAdresses = [...new Set(ipAdresses)];
   return ipAdresses;
 }
 
