@@ -1,15 +1,15 @@
-class Sharpie{
+class Sharpie {
   private color: string;
   private width: number;
   private inkAmount: number;
 
-  constructor(color: string, width: number){
+  constructor(color: string, width: number) {
     this.color = color;
     this.width = width;
     this.inkAmount = 100;
   }
 
-  use(){
+  use() {
     this.inkAmount--;
     console.log(`Ink amount: ${this.inkAmount}`)
   }
