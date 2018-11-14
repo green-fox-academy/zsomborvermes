@@ -82,21 +82,3 @@ export class Armada {
     console.log(`Number of ships in the armada: ${this.armada.length}`);
   }
 }
-
-
-
-/* while (armada_1.length !== 0 && armada_2.length !== 0) {
-  for (let i = 0; i < 2500000000; i++) { }
-  console.log(`\n-------------------`);
-  console.log(`Round ${roundCounter}\n`);
-  if (armada_1[0].battle(armada_2[0])) {
-    console.log(`${this.name} won the battle`);
-    armada_2.splice(0, 1);
-  } else {
-    console.log(`${armada.name} won the battle`);
-    armada_1.splice(0, 1);
-  }
-  console.log(`${this.name} have ${armada_1.length} and ${armada.name} have ${armada_2.length} ships left.`);
-  console.log(`-------------------`);
-  roundCounter++;
-} */
