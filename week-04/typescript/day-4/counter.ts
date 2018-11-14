@@ -1,5 +1,5 @@
 
-function counter(n: number) {
+function counter(n: number): void {
   if (n !== 0) {
     console.log(n);
     counter(n - 1);
