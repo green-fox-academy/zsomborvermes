@@ -24,4 +24,4 @@ function drawHexagonFractal(x: number, y: number, size: number, depth: number): 
 
 }
 
-drawHexagonFractal(250, 250, 250, parseInt(prompt('Please set the deapth of the fractal: ')));
+drawHexagonFractal(250, 250, 250, parseInt(prompt('Please set the depth of the fractal: ')));
