@@ -17,12 +17,14 @@ function drawPattern(x: number, y: number, size: number, depth: number): void {
   }
 
   if (depth > 1) {
-    drawPattern(x, y + size / 3, size / 3, depth - 1);
-    drawPattern(x + size / 3, y, size / 3, depth - 1);
-    drawPattern(x + size * 2 / 3, y + size / 3, size / 3, depth - 1);
-    drawPattern(x + size / 3, y + size * 2 / 3, size / 3, depth - 1);
+    setTimeout(function () {
+      drawPattern(x, y + size / 3, size / 3, depth - 1);
+      drawPattern(x + size / 3, y, size / 3, depth - 1);
+      drawPattern(x + size * 2 / 3, y + size / 3, size / 3, depth - 1);
+      drawPattern(x + size / 3, y + size * 2 / 3, size / 3, depth - 1);
+    }, 1000);
   }
 }
 
 
-drawPattern(0, 0, canvas.width, 6);
+drawPattern(0, 0, canvas.width, parseInt(prompt('Please set the depth of the fractal: ')));
