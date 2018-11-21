@@ -5,7 +5,7 @@ export class ElectricGuitar extends StringedInstrument {
     super('Electric Guitar', numOfStrings);
   }
 
-  sound() {
+  sound(): string {
     return 'Twang';
   }
 }
