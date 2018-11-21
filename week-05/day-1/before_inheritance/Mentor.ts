@@ -16,4 +16,3 @@ export class Mentor extends Person {
     console.log(`Educate brilliant junior software developers.`);
   }
 }
-
