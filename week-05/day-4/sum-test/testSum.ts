@@ -1,5 +1,6 @@
-import { test } from '../../../node_modules/tape';
 import { Sum } from './Sum';
+
+const test = require('tape');
 
 test('test sum() with multiple elements', t => {
   const expected = 100;
