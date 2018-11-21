@@ -10,6 +10,6 @@ function initializeReservations(num: number): Reservation[] {
 
 let reservations: Reservation[] = initializeReservations(100);
 
-for(let reservation of reservations){
+for (let reservation of reservations) {
   reservation.print();
 }
