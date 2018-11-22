@@ -11,7 +11,7 @@ test('test countLetters() if it creates the correct dictionary', t => {
     e: 1
   }
 
-  t.equal(JSON.stringify(countLetters('apple')), JSON.stringify(expected));
+  t.deepEqual(countLetters('apple'), expected);
   t.end();
 });
 
@@ -23,7 +23,7 @@ test('test countLetters() if it creates the correct dictionary with UPPERCASE LE
     e: 1
   }
 
-  t.equal(JSON.stringify(countLetters('APPLE')), JSON.stringify(expected));
+  t.deepEqual(countLetters('APPLE'), expected);
   t.end();
 });
 
@@ -45,7 +45,7 @@ test('test countLetters() if it counts the duplicate letters correctly', t => {
   const expected = 2;
   const dictionary = countLetters('mastermaster');
 
-  for (let key in dictionary) {
+  for(let key in dictionary){
     t.equal(dictionary[key], expected);
   }
 
@@ -56,7 +56,7 @@ test('test countLetters() if it counts the letters correctly', t => {
   const expected = 1;
   const dictionary = countLetters('master');
 
-  for (let key in dictionary) {
+  for(let key in dictionary){
     t.equal(dictionary[key], expected);
   }
 
