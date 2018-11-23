@@ -5,7 +5,7 @@ interface Reservationy {
 
 export class Reservation implements Reservationy {
   private static UsedReservationCodes: string[] = [];
-  
+
   private dow: string;
   private code: string;
   private random: string[] = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'.split('');
@@ -25,7 +25,7 @@ export class Reservation implements Reservationy {
     if (Reservation.UsedReservationCodes.indexOf(randomCode) === -1) {
       return randomCode;
     }
-    console.log('alma');
+
     return this.getRandomCode();
   }
 
@@ -37,7 +37,7 @@ export class Reservation implements Reservationy {
     return this.code;
   }
 
-  print(){
+  print() {
     console.log(`Booking# ${this.code} for ${this.dow}`);
   }
 }
