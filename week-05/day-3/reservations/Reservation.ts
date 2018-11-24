@@ -17,8 +17,8 @@ export class Reservation implements Reservationy {
     Reservation.UsedReservationCodes.push(this.code);
   }
 
-  private getRandomCode() {
-    let randomCode = '';
+  private getRandomCode(): string {
+    let randomCode: string = '';
     for (let i = 0; i < 8; i++) {
       randomCode += this.random[Math.floor(Math.random() * this.random.length)];
     }
@@ -37,7 +37,7 @@ export class Reservation implements Reservationy {
     return this.code;
   }
 
-  print() {
+  print(): void {
     console.log(`Booking# ${this.code} for ${this.dow}`);
   }
 }

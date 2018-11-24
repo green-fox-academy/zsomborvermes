@@ -21,6 +21,6 @@ console.time('initReservations: 100002. element');
 initReservations(1);
 console.timeEnd('initReservations: 100002. element');
 
-/* for (let reservation of reservations) {
+ for (let reservation of reservations) {
   reservation.print();
-} */
+}
