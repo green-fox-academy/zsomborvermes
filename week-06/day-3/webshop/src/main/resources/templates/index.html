@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+
+  <title>Webshop</title>
+</head>
+
+<body>
+  <header onclick="location.href='/'" >My Shop</header>
+  <ul>
+    <button onclick="location.href='/available'" class="navbar">ONLY AVAILABLE</button>
+    <button onclick="location.href='/contains-nike'" class="navbar">CONTAINS NIKE</button>
+    <button onclick="location.href='/cheapest'" class="navbar">CHEAPEST FIRST</button>
+    <button onclick="location.href='/avg-stock'" class="navbar">AVERAGE STOCK</button>
+    <button onclick="location.href='/most-expensive'" class="navbar">MOST EXPENSIVE</button>
+  </ul>
+  <p>Search for:</p>
+  <form method="post" action="/search" class="search-bar">
+    <input type="text" name="search">
+    <button type="submit" class="submit-button">Search</button>
+  </form>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Quantity of Stock</th>
+    </tr>
+    <tr th:each="item : ${items}">
+      <td th:text="${item.getName()}">
+      <td th:text="${item.getDescription()}">
+      <td th:text="${item.getPrice()}">
+      <td th:text="${item.getQuantityOfStock()}">
+    </tr>
+  </table>
+</body>
+
+</html>

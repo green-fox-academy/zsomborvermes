@@ -1,0 +1,85 @@
+body {
+  width: 100wv;
+  margin: 20px;
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  width: 95vw;
+  font-size: 40px;
+  color: #00bcd6;
+  font-weight: bold;
+  border-bottom: 2px solid #00bcd6;
+}
+
+ul {
+  width: 100wv;
+  padding: 0;
+}
+
+.navbar {
+  background-color: #f7412d;
+  color: white;
+  font-weight: bold;
+  font-size: 2vh;
+  border: transparent;
+  border-radius: 10px;
+  height: 5vh;
+  width: 18.5vw;
+}
+
+p {
+  margin: 0 auto;
+  font-size: 15px;
+  color: #ff785e;
+}
+
+input {
+  width: 75vw;
+  border: 3px solid #f7412d;
+  border-radius: 10px;
+  height: 40px;
+  font-size: 30px;
+}
+
+.search-bar {
+  font-size: 30px;
+  display: inline;
+}
+
+.submit-button {
+  background-color: #f7412d;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border: transparent;
+  border-radius: 10px;
+  height: 48px;
+  width: 15vw;
+  margin-left: 10px;
+  position: absolute;
+}
+
+a {
+  font-size: 10px;
+}
+
+th {
+  background-color: #5aefff;
+  width: 25vw;
+  height: 10vh;
+  font-size: 5vh;
+}
+
+td {
+  text-align: center;
+  font-size: 5vh;
+}
+
+.avg-stock {
+  font-weight: bold;
+  font-size: 60px;
+}
