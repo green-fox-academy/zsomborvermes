@@ -16,16 +16,16 @@ public class BankAccountController {
     private List<BankAccount> accounts = new ArrayList<>();
 
     public BankAccountController() {
-        accounts.add(new BankAccount("Simba", 200, "lion"));
-        accounts.add(new BankAccount("Rafiki", 123.234, "monkey"));
-        accounts.add(new BankAccount("Nala", 20.542, "lion"));
-        accounts.add(new BankAccount("Pumba", 40.875, "pig"));
-        accounts.add(new BankAccount("Timon", 103.5332, "meerkat"));
+        accounts.add(new BankAccount("Simba", 200, "lion", true, false));
+        accounts.add(new BankAccount("Rafiki", 123.234, "monkey", false, true));
+        accounts.add(new BankAccount("Nala", 20.542, "lion", false, false));
+        accounts.add(new BankAccount("Pumba", 40.875, "pig", false, true));
+        accounts.add(new BankAccount("Timon", 103.5332, "meerkat", false, true));
     }
 
     @RequestMapping(path = "/show", method = RequestMethod.GET)
     public String show(Model model) {
-        BankAccount simba = new BankAccount("Simba", 2000, "lion");
+        BankAccount simba = new BankAccount("Simba", 2000, "lion", true, false);
         model.addAttribute("simba", simba);
         return "show";
     }
