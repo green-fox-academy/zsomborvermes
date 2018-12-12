@@ -5,10 +5,23 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Controller
 
 public class BankAccountController {
+
+    private List<BankAccount> accounts = new ArrayList<>();
+
+    public BankAccountController() {
+        accounts.add(new BankAccount("Simba", 200, "lion"));
+        accounts.add(new BankAccount("Rafiki", 123.234, "monkey"));
+        accounts.add(new BankAccount("Nala", 20.542, "lion"));
+        accounts.add(new BankAccount("Pumba", 40.875, "pig"));
+        accounts.add(new BankAccount("Timon", 103.5332, "meerkat"));
+    }
 
     @RequestMapping(path = "/show", method = RequestMethod.GET)
     public String show(Model model) {
@@ -24,4 +37,12 @@ public class BankAccountController {
         model.addAttribute("text", "This is an <em>HTML</em> text. <b>Enjoy yourself!</b>");
         return "htmlception";
     }
+
+    @RequestMapping(path = "/showAll", method = RequestMethod.GET)
+    public String showAll(Model model) {
+        model.addAttribute("accounts", accounts);
+        return "showAll";
+    }
+
+
 }
