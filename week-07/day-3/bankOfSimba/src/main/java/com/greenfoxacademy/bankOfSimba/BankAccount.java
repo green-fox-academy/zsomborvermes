@@ -1,5 +1,7 @@
 package com.greenfoxacademy.bankOfSimba;
 
+import java.text.DecimalFormat;
+
 public class BankAccount {
     private String name;
     private double balance;
@@ -15,8 +17,9 @@ public class BankAccount {
         return name;
     }
 
-    public double getBalance() {
-        return balance;
+    public String getBalance() {
+        DecimalFormat df = new DecimalFormat("0.00 Zebra");
+        return df.format(balance);
     }
 
     public String getAnimalType() {
