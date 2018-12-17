@@ -34,8 +34,13 @@ public class TodoController {
 
   @PostMapping("/add")
   public String addTodo(@ModelAttribute Todo todo) {
-    System.out.println(todo.getTitle());
-      todos.addTodo(todo);
+    todos.addTodo(todo);
+    return "redirect:/todo/list";
+  }
+
+  @GetMapping("/{id}/delete")
+  public String deleteTodo(@PathVariable long id) {
+    todos.deleteTodo(id);
     return "redirect:/todo/list";
   }
 }
