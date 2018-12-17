@@ -26,4 +26,8 @@ public class TodoService {
      ArrayList<Todo> todos = (ArrayList<Todo>) repository.findAll();
      return (ArrayList<Todo>) todos.stream().filter(todo -> !todo.isDone()).collect(Collectors.toList());
   }
+
+  public void addTodo(Todo todo) {
+    repository.save(todo);
+  }
 }

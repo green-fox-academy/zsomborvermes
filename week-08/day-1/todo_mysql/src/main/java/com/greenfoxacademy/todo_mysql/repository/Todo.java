@@ -15,9 +15,25 @@ public class Todo {
   private boolean urgent;
   private boolean done;
 
-  public Todo(String title, boolean urgent, boolean done) {
+  public Todo(String title) {
     this.title = title;
+    this.urgent = false;
+    this.done = false;
+  }
+
+  public void setId(long id) {
+    this.id = id;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public void setUrgent(boolean urgent) {
     this.urgent = urgent;
+  }
+
+  public void setDone(boolean done) {
     this.done = done;
   }
 
