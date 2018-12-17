@@ -3,26 +3,35 @@
 <head>
     <title>ToDo</title>
     <link rel="stylesheet" th:href="@{/style.css}"/>
+    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
     <meta charset="utf-8"/>
 </head>
 <body>
-<h1>Todos for today:</h1>
-<a href="/todo/add">Add new Todo</a>
-<table>
+<div class="container">
+<h1 class="text-center">Todos for today:</h1>
+<a class="btn-lg btn-success center-block text-center" href="/todo/add">Add new Todo</a>
+<table class="table table-striped">
+    <thead>
     <tr>
-        <th>Id</th>
+        <th>#</th>
         <th>Title</th>
         <th>Urgent</th>
         <th>Done</th>
     </tr>
+    </thead>
+    <tbody>
     <tr th:each="todo : ${todos}">
         <td th:text="${todo.id}"></td>
         <td th:text="${todo.title}"></td>
-        <td th:text="${todo.urgent}"></td>
-        <td th:text="${todo.done}"></td>
-        <td><a th:href="@{|/todo/${todo.id}/delete|}">delete</a></td>
-        <td><a th:href="@{|/todo/${todo.id}/edit|}">edit</a></td>
+        <td><span th:class="${todo.urgent} ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'"></span></td>
+        <td><span th:class="${todo.done} ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'"></span></td>
+        <td><a class="btn btn-danger glyphicon glyphicon-trash" th:href="@{|/todo/${todo.id}/delete|}"> delete</a></td>
+        <td><a class="btn btn-primary glyphicon glyphicon-wrench" th:href="@{|/todo/${todo.id}/edit|}"> edit</a></td>
     </tr>
+    </tbody>
 </table>
+</div>
+<script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
 </body>
 </html>

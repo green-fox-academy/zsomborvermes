@@ -3,14 +3,20 @@
 <head>
     <title>ToDo</title>
     <link rel="stylesheet" th:href="@{/style.css}"/>
+    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
     <meta charset="utf-8"/>
 </head>
 <body>
+<div class="container">
 <h1>Add new todo</h1>
 <form action="#" th:action="@{/todo/add}" method="post" th:object="${todo}">
-    <input type="text" th:field="*{title}">
-    <button>Add todo</button>
+    <div class="form-group">
+    <input type="text" class="form-control" th:field="*{title}">
+    </div>
+    <button class="btn-lg btn-success">Add todo</button>
 </form>
-</table>
+<script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+</div>
 </body>
 </html>
