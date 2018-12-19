@@ -1,8 +1,9 @@
-package com.greenfoxacademy.todo_mysql.repository;
+package com.greenfoxacademy.todo_mysql.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.hibernate.annotations.Fetch;
+
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Todo {
@@ -11,14 +12,38 @@ public class Todo {
   @GeneratedValue
   private long id;
 
+  @Temporal(TemporalType.TIMESTAMP)
+  private Date createdAt = new Date();
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "assignee_id")
+  private Assignee assignee;
+
   private String title;
   private boolean urgent;
   private boolean done;
+
+  public Assignee getAssignee() {
+    return assignee;
+  }
+
+  public void setAssignee(Assignee assignee) {
+    this.assignee = assignee;
+  }
+
+  public Date getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(Date createdAt) {
+    this.createdAt = createdAt;
+  }
 
   public Todo(String title) {
     this.title = title;
     this.urgent = false;
     this.done = false;
+    this.createdAt = new Date();
   }
 
   public void setId(long id) {
@@ -37,7 +62,8 @@ public class Todo {
     this.done = done;
   }
 
-  public Todo() { }
+  public Todo() {
+  }
 
   public long getId() {
     return id;

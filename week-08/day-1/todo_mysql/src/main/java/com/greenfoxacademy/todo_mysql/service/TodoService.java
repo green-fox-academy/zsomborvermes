@@ -1,6 +1,6 @@
 package com.greenfoxacademy.todo_mysql.service;
 
-import com.greenfoxacademy.todo_mysql.repository.Todo;
+import com.greenfoxacademy.todo_mysql.model.Todo;
 import com.greenfoxacademy.todo_mysql.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +30,10 @@ public class TodoService {
   public ArrayList<Todo> getActive() {
     ArrayList<Todo> todos = (ArrayList<Todo>) repository.findAll();
     return (ArrayList<Todo>) todos.stream().filter(todo -> !todo.isDone()).collect(Collectors.toList());
+  }
+
+  public ArrayList<Todo> searchResult(String searchValue) {
+    return repository.findAllByTitleContains(searchValue);
   }
 
   public void addTodo(Todo todo) {

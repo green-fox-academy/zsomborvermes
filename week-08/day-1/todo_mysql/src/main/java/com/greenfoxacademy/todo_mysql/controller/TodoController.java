@@ -1,19 +1,24 @@
 package com.greenfoxacademy.todo_mysql.controller;
 
-import com.greenfoxacademy.todo_mysql.repository.Todo;
+import com.greenfoxacademy.todo_mysql.model.Assignee;
+import com.greenfoxacademy.todo_mysql.model.Todo;
+import com.greenfoxacademy.todo_mysql.service.AssigneeService;
 import com.greenfoxacademy.todo_mysql.service.TodoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/todo")
 public class TodoController {
 
   private TodoService todos;
+  private AssigneeService assignees;
 
-  public TodoController(TodoService todos) {
+  @Autowired
+  public TodoController(TodoService todos, AssigneeService assignees) {
     this.todos = todos;
+    this.assignees = assignees;
   }
 
   @GetMapping({"/", "/list"})
@@ -26,6 +31,12 @@ public class TodoController {
     return "todolist";
   }
 
+  @PostMapping({"/list"})
+  public String listSearchResult(@RequestParam String search, Model model) {
+    model.addAttribute("todos", todos.searchResult(search));
+    return "todolist";
+  }
+
   @GetMapping("/add")
   public String addTodoForm(Model model) {
     model.addAttribute("todo", new Todo());
@@ -35,24 +46,42 @@ public class TodoController {
   @PostMapping("/add")
   public String addTodo(@ModelAttribute Todo todo) {
     todos.addTodo(todo);
-    return "redirect:/todo/list";
+    return "redirect:/list";
   }
 
   @GetMapping("/{id}/delete")
   public String deleteTodo(@PathVariable long id) {
     todos.deleteTodo(id);
-    return "redirect:/todo/list";
+    return "redirect:/list";
   }
 
   @GetMapping("/{id}/edit")
   public String editTodoForm(@PathVariable long id, Model model) {
     model.addAttribute("todo", todos.getTodoById(id));
+    model.addAttribute("assignees", assignees.getAll());
     return "edit";
   }
 
   @PostMapping("/{id}/edit")
   public String editTodo(@PathVariable long id, @ModelAttribute Todo todo) {
-    todos.addTodo(todo);
-    return "redirect:/todo/list";
+    Todo originalTodo = todos.getTodoById(id);
+    originalTodo.setTitle(todo.getTitle());
+    originalTodo.setUrgent(todo.isUrgent());
+    originalTodo.setDone(todo.isDone());
+    originalTodo.setAssignee(todo.getAssignee());
+    todos.addTodo(originalTodo);
+    return "redirect:/list";
+  }
+
+  @GetMapping("/create-assignee")
+  public String createForm(Model model) {
+    model.addAttribute("assignee", new Assignee());
+    return "create-assignee";
+  }
+
+  @PostMapping("/create-assignee")
+  public String create(@ModelAttribute Assignee assignee) {
+    assignees.addAssignee(assignee);
+    return "redirect:/";
   }
 }
