@@ -24,4 +24,8 @@ public class AssigneeService {
   public ArrayList<Assignee> getAll() {
     return (ArrayList<Assignee>) repository.findAll();
   }
+
+  public void deleteAssignee(long id) {
+    repository.deleteById(id);
+  }
 }

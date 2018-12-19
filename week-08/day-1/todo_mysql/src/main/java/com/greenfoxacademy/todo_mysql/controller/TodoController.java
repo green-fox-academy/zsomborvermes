@@ -82,6 +82,18 @@ public class TodoController {
   @PostMapping("/create-assignee")
   public String create(@ModelAttribute Assignee assignee) {
     assignees.addAssignee(assignee);
-    return "redirect:/";
+    return "redirect:/assigneelist";
+  }
+
+  @GetMapping("/assigneelist")
+  public String assigneeList(Model model) {
+    model.addAttribute("assignees", assignees.getAll());
+    return "assigneelist";
+  }
+
+  @GetMapping("/{id}/delete-assignee")
+  public String deleteAssignee(@PathVariable long id) {
+    assignees.deleteAssignee(id);
+    return "redirect:/assigneelist";
   }
 }

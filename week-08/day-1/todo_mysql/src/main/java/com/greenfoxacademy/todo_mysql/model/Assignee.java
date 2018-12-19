@@ -1,8 +1,7 @@
 package com.greenfoxacademy.todo_mysql.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Assignee {
@@ -13,6 +12,9 @@ public class Assignee {
 
   private String name;
   private String email;
+
+  @OneToMany(mappedBy = "assignee", cascade = CascadeType.ALL)
+  private List<Todo> todos;
 
   public Assignee() {
   }

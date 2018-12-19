@@ -1,6 +1,5 @@
 package com.greenfoxacademy.todo_mysql.model;
 
-import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
 import java.util.Date;
