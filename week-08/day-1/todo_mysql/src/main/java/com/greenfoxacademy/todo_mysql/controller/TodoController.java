@@ -69,6 +69,7 @@ public class TodoController {
     originalTodo.setUrgent(todo.isUrgent());
     originalTodo.setDone(todo.isDone());
     originalTodo.setAssignee(todo.getAssignee());
+    originalTodo.setDueDate(todo.getDueDate());
     todos.addTodo(originalTodo);
     return "redirect:/list";
   }
@@ -96,4 +97,12 @@ public class TodoController {
     assignees.deleteAssignee(id);
     return "redirect:/assigneelist";
   }
+
+  @GetMapping("/{id}/todolist-of-assignee")
+  public String todoListOfAssignee(@PathVariable long id, Model model) {
+    model.addAttribute("assignee", assignees.getAssigneeById(id));
+    model.addAttribute("todos", assignees.getAssigneeById(id).getTodos());
+    return "todolist-of-assignee";
+  }
+
 }

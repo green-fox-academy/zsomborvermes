@@ -1,7 +1,10 @@
 package com.greenfoxacademy.todo_mysql.model;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
@@ -11,8 +14,11 @@ public class Todo {
   @GeneratedValue
   private long id;
 
-  @Temporal(TemporalType.TIMESTAMP)
+  @Temporal(TemporalType.DATE)
   private Date createdAt = new Date();
+
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
+  private Date dueDate;
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "assignee_id")
@@ -78,5 +84,13 @@ public class Todo {
 
   public boolean isDone() {
     return done;
+  }
+
+  public Date getDueDate() {
+    return dueDate;
+  }
+
+  public void setDueDate(Date dueDate) {
+    this.dueDate = dueDate;
   }
 }

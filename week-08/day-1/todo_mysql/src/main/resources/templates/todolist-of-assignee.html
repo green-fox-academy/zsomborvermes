@@ -14,11 +14,13 @@
             <a class="navbar-brand" href="/"><i class="fa fa-check-square"></i> Todo</a>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link btn btn-primary" href="/assigneelist"><i class="fa fa-users"></i> Assignee list</a>
+                    <a class="nav-link btn btn-primary" href="/assigneelist"><i class="fa fa-users"></i> Assignee
+                        list</a>
                 </li>
             </ul>
             <form class="form-inline" th:action="@{/list}" method="post">
-                <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
+                <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search"
+                       aria-label="Search">
                 <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
@@ -26,28 +28,33 @@
 </header>
 <body>
 <div class="container">
-    <h1 class="text-center mt-12">Assignees</h1>
     <div class="text-center mb-5">
-        <a class="btn btn-lg btn-success" href="/create-assignee">Create assignee</a>
+        <h1 th:text="| Todos of ${assignee.name}|"><i class="fa fa-check-square"></i></h1>
     </div>
-    <table class="table table-striped col-lg-6 offset-lg-3">
+    <table class="table table-striped col-lg-8 offset-lg-2">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Email</th>
+            <th>Date</th>
+            <th>Due date</th>
+            <th>Title</th>
+            <th>Urgent</th>
+            <th>Done</th>
             <th></th>
             <th></th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="assignee : ${assignees}">
-            <td class="col-lg-2"><a th:href="@{|/${assignee.id}/todolist-of-assignee|}" th:text="${assignee.name}"></a></td>
-            <td class="col-lg-2"th:text="${assignee.email}"></td>
-            <td class="col-lg-1"><a class="btn btn-danger"
-                   th:href="@{|/${assignee.id}/delete-assignee|}"><i class="fa fa-trash"></i></a>
+        <tr th:each="todo : ${todos}">
+            <td th:text="${todo.createdAt}"></td>
+            <td th:text="${todo.dueDate} ? ${#dates.format(todo.dueDate, 'yyyy-MM-dd')}: ''"></td>
+            <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5" th:text="${todo.title}"></td>
+            <td><i th:class="${todo.urgent} ? 'fa fa-check' : 'fa fa-times'"></i></td>
+            <td><i th:class="${todo.done} ? 'fa fa-check' : 'fa fa-times'"></i></td>
+            <td><a class="btn btn-danger"
+                   th:href="@{|/${todo.id}/delete|}"><i class="fa fa-trash"></i></a>
             </td>
-            <td class="col-lg-1"><a class="btn btn-primary"
-                   th:href="@{|/${assignee.id}/edit-assignee|}"><i class="fa fa-wrench"></i></a>
+            <td><a class="btn btn-primary"
+                   th:href="@{|/${todo.id}/edit|}"><i class="fa fa-wrench"></i></a>
             </td>
         </tr>
         </tbody>

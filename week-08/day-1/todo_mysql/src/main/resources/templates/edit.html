@@ -42,6 +42,10 @@
             <input type="checkbox" class="custom-checkbox" id="done" th:field="*{done}"/>
             <label for="done">Done </label>
         </div>
+        <div class="form-group">
+            <label for="due-date">Due date </label>
+            <input type="date" id="due-date" th:field="*{dueDate}"/>
+        </div>
         <button class="btn btn-lg btn-primary">Edit todo</button>
         <a class="btn btn-lg btn-danger" th:href="@{/list}">Cancel</a>
     </form>

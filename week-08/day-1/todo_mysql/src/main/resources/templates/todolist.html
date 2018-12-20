@@ -34,6 +34,7 @@
         <thead>
         <tr>
             <th>Date</th>
+            <th>Due date</th>
             <th>Title</th>
             <th>Assignee</th>
             <th>Urgent</th>
@@ -45,8 +46,9 @@
         <tbody>
         <tr th:each="todo : ${todos}">
             <td th:text="${todo.createdAt}"></td>
+            <td th:text="${todo.dueDate} ? ${#dates.format(todo.dueDate, 'yyyy-MM-dd')}: ''"></td>
             <td class="col-lg-8 col-md-8 col-sm-8 col-xs-8" th:text="${todo.title}"></td>
-            <td th:text="${todo.assignee} ? ${todo.assignee.name} : ''"></td>
+            <td><a th:href="${todo.assignee} ? @{|/${todo.assignee.id}/todolist-of-assignee|}" th:text="${todo.assignee} ? ${todo.assignee.name} : ''"></a></td>
             <td><i th:class="${todo.urgent} ? 'fa fa-check' : 'fa fa-times'"></i></td>
             <td><i th:class="${todo.done} ? 'fa fa-check' : 'fa fa-times'"></i></td>
             <td><a class="btn btn-danger"
