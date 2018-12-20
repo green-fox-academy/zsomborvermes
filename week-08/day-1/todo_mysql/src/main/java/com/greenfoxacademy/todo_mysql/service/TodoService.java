@@ -1,5 +1,6 @@
 package com.greenfoxacademy.todo_mysql.service;
 
+import com.greenfoxacademy.todo_mysql.model.Assignee;
 import com.greenfoxacademy.todo_mysql.model.Todo;
 import com.greenfoxacademy.todo_mysql.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Service

@@ -13,7 +13,7 @@ public class Assignee {
   private String name;
   private String email;
 
-  @OneToMany(mappedBy = "assignee", cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "assignee")
   private List<Todo> todos;
 
   public Assignee() {
@@ -46,5 +46,13 @@ public class Assignee {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  public List<Todo> getTodos() {
+    return todos;
+  }
+
+  public void setTodos(List<Todo> todos) {
+    this.todos = todos;
   }
 }

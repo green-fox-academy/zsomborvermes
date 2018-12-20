@@ -26,6 +26,11 @@ public class AssigneeService {
   }
 
   public void deleteAssignee(long id) {
+    repository.findById(id).get().getTodos().forEach(todo -> todo.setAssignee(null));
     repository.deleteById(id);
+  }
+
+  public Assignee getAssigneeById(long id) {
+    return repository.findById(id).get();
   }
 }
