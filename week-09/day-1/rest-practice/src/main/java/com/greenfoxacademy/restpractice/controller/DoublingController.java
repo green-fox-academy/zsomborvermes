@@ -1,6 +1,7 @@
 package com.greenfoxacademy.restpractice.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -40,7 +41,12 @@ public class DoublingController {
     }
     response.put("welcome_message", "Oh, hi there " + name + ", my dear " + title + "!");
     return response;
+  }
 
-
+  @GetMapping("/appenda/{appendable}")
+  public HashMap<?, ?> appendA(@PathVariable String appendable) {
+    HashMap<String, String> response = new HashMap<>();
+    response.put("appended", appendable + "a");
+    return response;
   }
 }
