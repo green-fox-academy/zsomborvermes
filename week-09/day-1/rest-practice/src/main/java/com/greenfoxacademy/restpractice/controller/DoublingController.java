@@ -61,8 +61,8 @@ public class DoublingController {
     if (action.equals("factor")) {
       HashMap<String, Integer> response = new HashMap<>();
       int factor = 1;
-      for (int i = 0; i < until.get("until"); i++) {
-        factor += factor * i;
+      for (int i = 1; i <= until.get("until"); i++) {
+        factor *= i;
       }
       response.put("result", factor);
       return response;
