@@ -1,9 +1,6 @@
 package com.greenfoxacademy.restpractice.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 
@@ -49,4 +46,31 @@ public class DoublingController {
     response.put("appended", appendable + "a");
     return response;
   }
+
+  @PostMapping("/dountil/{action}")
+  public HashMap<?, ?> doUntil(@PathVariable String action, @RequestBody HashMap<String, Integer> until) {
+    if (action.equals("sum")) {
+      HashMap<String, Integer> response = new HashMap<>();
+      int sum = 0;
+      for (int i = 0; i <= until.get("until"); i++) {
+        sum += i;
+      }
+      response.put("result", sum);
+      return response;
+    }
+    if (action.equals("factor")) {
+      HashMap<String, Integer> response = new HashMap<>();
+      int factor = 1;
+      for (int i = 0; i < until.get("until"); i++) {
+        factor += factor * i;
+      }
+      response.put("result", factor);
+      return response;
+    }
+
+    HashMap<String, String> response = new HashMap<>();
+    response.put("error", "Please provide a number!");
+    return response;
+  }
+
 }
