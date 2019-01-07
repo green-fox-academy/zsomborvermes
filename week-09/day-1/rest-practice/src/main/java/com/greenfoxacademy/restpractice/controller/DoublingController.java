@@ -22,4 +22,25 @@ public class DoublingController {
       return response;
     }
   }
+
+  @GetMapping("/greeter")
+  public HashMap<?, ?> greeter(@RequestParam(required = false) String name, String title) {
+    HashMap<String, String> response = new HashMap<>();
+    if (title == null && name == null) {
+      response.put("error", "Please provide a name and a title!");
+      return response;
+    }
+    if (name == null) {
+      response.put("error", "Please provide a name!");
+      return response;
+    }
+    if (title == null) {
+      response.put("error", "Please provide a title!");
+      return response;
+    }
+    response.put("welcome_message", "Oh, hi there " + name + ", my dear " + title + "!");
+    return response;
+
+
+  }
 }
