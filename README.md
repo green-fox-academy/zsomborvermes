@@ -12,6 +12,8 @@
 
 [Repository for my website](https://github.com/zsomborvermes/zsomborvermes.github.io)
 
+[Data Science project syllabus](https://github.com/green-fox-academy/huli-data-science)
+
 [Ruepellii Really syllabus](https://github.com/green-fox-academy/really-syllabus)
 
 [Ruepellii Tiptop syllabus](https://github.com/green-fox-academy/tiptop-syllabus)
